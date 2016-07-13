@@ -3,6 +3,9 @@
 # and can be overridden by the active play.
 # (Other files in this directory must be included via an `include_vars` task.)
 
+# The host where Jenkins will be installed
+jenkins_host: 'localhost'
+
 # Jenkins doesn't (and shouldn't) run as root, so this must be over 1024.
 jenkins_port: 8080
 

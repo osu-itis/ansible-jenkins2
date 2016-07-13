@@ -84,7 +84,7 @@
 # just to download it.
 - name: Get Jenkins CLI
   get_url:
-    url: "http://localhost:{{ jenkins_port }}{{ jenkins_context_path | default('') }}/jnlpJars/jenkins-cli.jar"
+    url: "http://{{ jenkins_host }}:{{ jenkins_port }}{{ jenkins_context_path | default('') }}/jnlpJars/jenkins-cli.jar"
     dest: /opt/jenkins/jenkins-cli.jar
     owner: jenkins
     group: jenkins
@@ -92,7 +92,7 @@
   become: true
 
 - name: Verify CLI
-  shell: "java -jar /opt/jenkins/jenkins-cli.jar -s http://localhost:{{ jenkins_port }}{{ jenkins_context_path | default('') }} who-am-i"
+  shell: "java -jar /opt/jenkins/jenkins-cli.jar -s http://{{ jenkins_host }}:{{ jenkins_port }}{{ jenkins_context_path | default('') }} who-am-i"
   register: cli_whoami
   become: true
   become_user: jenkins

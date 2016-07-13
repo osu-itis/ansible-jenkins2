@@ -15,6 +15,9 @@ Role Variables
 
 Available variables are listed below, along with default values (see [defaults/main.yml](defaults/main.yml)):
 
+    # Jenkins host
+    jenkins_host: 'localhost'
+
     # Jenkins doesn't (and shouldn't) run as root, so this must be over 1024.
     jenkins_port: 8080
 
